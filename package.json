@@ -3,6 +3,7 @@
     "version": "0.0.2",
     "private": false,
     "dependencies": {
+        "airtable": "^0.7.1",
         "antd": "^3.21.4",
         "axios": "^0.19.0",
         "babel-plugin-import": "^1.11.0",

@@ -1,8 +1,10 @@
 import { combineReducers } from "redux"
 import userReducer from "./userReducer.js"
+import placeReducer from "./placeReducer.js"
 
 const appReducer = combineReducers({
-    user: userReducer
+    user: userReducer,
+    place: placeReducer
 })
 
 export const rootReducer = (state, action) => {
