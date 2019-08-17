@@ -1,62 +1,30 @@
-import React from 'react';
-import { Form, Select, InputNumber, DatePicker, Switch, Slider, Button } from 'antd';
-import './App.css';
+import React, { useState, Suspense } from "react"
+import { BrowserRouter, Switch, Route } from "react-router-dom"
+import { Provider } from "react-redux"
+import { ThemeProvider } from "styled-components"
+import { createAppStore } from "./store"
 
-const { Option } = Select;
+const Trip = React.lazy(() => import("./pages/Trip"))
+const Main = React.lazy(() => import("./pages/Main"))
 
-const App = () => (
-  <Form style={{ marginTop: 32 }}>
-    <Form.Item
-      label="数字输入框"
-      labelCol={{ span: 8 }}
-      wrapperCol={{ span: 8 }}
-    >
-      <InputNumber min={1} max={10} defaultValue={3} />
-      <span className="ant-form-text"> 台机器</span>
-      <a href="https://ant.design">链接文字</a>
-    </Form.Item>
-    <Form.Item
-      label="开关"
-      labelCol={{ span: 8 }}
-      wrapperCol={{ span: 8 }}
-    >
-      <Switch defaultChecked />
-    </Form.Item>
-    <Form.Item
-      label="滑动输入条"
-      labelCol={{ span: 8 }}
-      wrapperCol={{ span: 8 }}
-    >
-      <Slider defaultValue={70} />
-    </Form.Item>
-    <Form.Item
-      label="选择器"
-      labelCol={{ span: 8 }}
-      wrapperCol={{ span: 8 }}
-    >
-      <Select defaultValue="lucy" style={{ width: 192 }}>
-        <Option value="jack">jack</Option>
-        <Option value="lucy">lucy</Option>
-        <Option value="disabled" disabled>disabled</Option>
-        <Option value="yiminghe">yiminghe</Option>
-      </Select>
-    </Form.Item>
-    <Form.Item
-      label="日期选择框"
-      labelCol={{ span: 8 }}
-      wrapperCol={{ span: 8 }}
-    >
-      <DatePicker />
-    </Form.Item>
-    <Form.Item wrapperCol={{ span: 8, offset: 8 }}>
-      <Button type="primary" htmlType="submit">
-        确定
-      </Button>
-      <Button style={{ marginLeft: 8 }}>
-        取消
-      </Button>
-    </Form.Item>
-  </Form>
-);
+const App = () => {
+    const [mode, setMode] = useState("light")
+    const handleToggle = () => setMode(mode === "light" ? "dark" : "light")
 
-export default App;
+    return (
+        <Provider store={createAppStore()}>
+            <BrowserRouter>
+                <ThemeProvider theme={{ mode, toggle: handleToggle }}>
+                    <Switch>
+                        <Suspense fallback="Loading...">
+                            <Route exact path="/" component={Main} />
+                            <Route path="/trip" component={Trip} />
+                        </Suspense>
+                    </Switch>
+                </ThemeProvider>
+            </BrowserRouter>
+        </Provider>
+    )
+}
+
+export default App
