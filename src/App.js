@@ -4,7 +4,6 @@ import { Provider } from "react-redux"
 import { ThemeProvider } from "styled-components"
 import { createAppStore } from "./store"
 
-const Trip = React.lazy(() => import("./pages/Trip"))
 const Main = React.lazy(() => import("./pages/Main"))
 
 const App = () => {
@@ -18,7 +17,6 @@ const App = () => {
                     <Switch>
                         <Suspense fallback="Loading...">
                             <Route exact path="/" component={Main} />
-                            <Route path="/trip" component={Trip} />
                         </Suspense>
                     </Switch>
                 </ThemeProvider>

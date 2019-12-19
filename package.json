@@ -4,7 +4,7 @@
     "private": false,
     "dependencies": {
         "airtable": "^0.7.1",
-        "antd": "^3.21.4",
+        "antd": "^3.26.3",
         "axios": "^0.19.0",
         "babel-plugin-import": "^1.11.0",
         "customize-cra": "^0.5.0",
@@ -13,12 +13,12 @@
         "react": "^16.9.0",
         "react-app-rewired": "^2.1.0",
         "react-dom": "^16.8.6",
-        "react-redux": "^7.1.0",
+        "react-redux": "^7.1.3",
         "react-router-dom": "^5.0.1",
         "react-scripts": "2.1.5",
         "redux": "^4.0.4",
         "redux-thunk": "^2.3.0",
-        "styled-components": "^4.3.2"
+        "styled-components": "^4.4.1"
     },
     "scripts": {
         "start": "react-app-rewired start",
