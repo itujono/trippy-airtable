@@ -1,5 +1,6 @@
 import React from "react"
 import { Typography } from "antd"
+import styled from "styled-components"
 
 export const reverseStyle = {
     fontSize: 11,
@@ -8,14 +9,19 @@ export const reverseStyle = {
     color: "inherit"
 }
 
+const StyledHeading = styled(Typography)`
+    font-weight: ${({ bold }) => bold && "bold"};
+    margin-bottom: ${({ marginBottom }) => marginBottom || "1.5em"};
+`
+
 function Heading({ level = 4, content = "", subheader = "", reverse, ...props }) {
     return (
-        <Typography {...props}>
+        <StyledHeading {...props}>
             <Typography.Title level={level} reverse={reverse} style={reverse ? reverseStyle : ""}>
                 {content}
             </Typography.Title>
             <Typography.Paragraph>{subheader}</Typography.Paragraph>
-        </Typography>
+        </StyledHeading>
     )
 }
 
