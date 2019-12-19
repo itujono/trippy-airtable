@@ -10,8 +10,10 @@ export const reverseStyle = {
 }
 
 const StyledHeading = styled(Typography)`
-    font-weight: ${({ bold }) => bold && "bold"};
     margin-bottom: ${({ marginBottom }) => marginBottom || "1.5em"};
+    .ant-typography:not(div) {
+        font-weight: ${({ bold }) => bold && "bold"};
+    }
 `
 
 function Heading({ level = 4, content = "", subheader = "", reverse, ...props }) {

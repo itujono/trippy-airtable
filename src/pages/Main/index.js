@@ -50,7 +50,7 @@ export default function Main() {
 
     return (
         <Section>
-            <Heading content="Main page" subheader="Keren kan, eheheh" />
+            <Heading bold content="Main page" subheader="Keren kan, eheheh" />
             <Button type="primary">
                 <Link to="/trip">Go to Trip</Link>
             </Button>
