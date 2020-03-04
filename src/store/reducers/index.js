@@ -1,9 +1,9 @@
 import { combineReducers } from "redux"
-import userReducer from "./userReducer.js"
+import productReducer from "./productReducer.js"
 import placeReducer from "./placeReducer.js"
 
 const appReducer = combineReducers({
-    user: userReducer,
+    product: productReducer,
     place: placeReducer
 })
 

@@ -1,12 +1,10 @@
 import axios from "axios"
 import { css } from "styled-components"
+import { BASE_URL } from "./constants"
 
 const instance = axios.create({
-    baseURL: "https://zigzagbatam.com/api/",
-    headers: {
-        "x-api-key": "953ab333-c05a-zigzag-4abf-b3db-6a8c25c0031e",
-        Accept: "application/json"
-    }
+    baseURL: BASE_URL,
+    headers: { Accept: "application/json" }
 })
 
 instance.interceptors.request.use(config => {

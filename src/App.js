@@ -4,7 +4,7 @@ import { Provider } from "react-redux"
 import { ThemeProvider } from "styled-components"
 import { createAppStore } from "./store"
 
-const Main = React.lazy(() => import("./pages/Main"))
+const Home = React.lazy(() => import("./pages/Home"))
 
 const App = () => {
     const [mode, setMode] = useState("light")
@@ -16,7 +16,7 @@ const App = () => {
                 <ThemeProvider theme={{ mode, toggle: handleToggle }}>
                     <Switch>
                         <Suspense fallback="Loading...">
-                            <Route exact path="/" component={Main} />
+                            <Route exact path="/" component={Home} />
                         </Suspense>
                     </Switch>
                 </ThemeProvider>
